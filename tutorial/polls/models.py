@@ -6,7 +6,7 @@ class Question(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
-        return self.title
+        return f'설문조사 ({self.title})'
 
 
 class Choice(models.Model):
@@ -15,4 +15,4 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.title
+        return f'{self.title} ({self.question.title})'
